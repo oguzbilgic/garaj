@@ -1,0 +1,14 @@
+<div class="box">
+  <ul class="paths">
+    <% if @dirs.empty? and @files.empty? %>
+      <li class="path">This folder is empty</li>
+    <% else %>
+      <% @dirs.each do |path| %>
+        <li class="path dir-path"><a href="<%= path[:url] %>"><%= path[:name] %>/</a></li>
+      <% end %>
+      <% @files.each do |path| %>
+        <li class="path file-path"><a href="<%= path[:url] %>"><%= path[:name] %></a></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

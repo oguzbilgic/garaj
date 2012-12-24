@@ -44,7 +44,7 @@ module Garaj
     def files_at(relative_path)
       files = []
       Dir.foreach(full_path_to(relative_path)) do |entry|
-        if !File.directory?("#{full_path_to(relative_path)}/#{entry}") and not_ignored?(entry)
+        if !path_is_dir?("#{relative_path)}/#{entry}") and not_ignored?(entry)
           files << entry 
         end
       end
@@ -55,7 +55,7 @@ module Garaj
     def dirs_at(relative_path)
       dirs = []
       Dir.foreach(full_path_to(relative_path)) do |entry|
-        if File.directory?("#{full_path_to(relative_path)}/#{entry}") and not_ignored?(entry)
+        if path_is_dir?("#{relative_path)}/#{entry}") and not_ignored?(entry)
           dirs << entry 
         end
       end

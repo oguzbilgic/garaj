@@ -20,15 +20,6 @@ module Garaj
       "#{@root_path}/#{relative_path.chomp('/')}"
     end
 
-    # Returns the url for the given relative path
-    def url_for(entry, relative_path)
-      if !relative_path.empty?
-        "/#{relative_path}/#{entry}" 
-      else
-        "/#{entry}" 
-      end
-    end
-
     # Checks if the given file is ignored
     def not_ignored?(entry)
       true unless IGNORED_ENTRIES.include?(entry)
@@ -54,7 +45,7 @@ module Garaj
       files = []
       Dir.foreach(full_path_to(relative_path)) do |entry|
         if !File.directory?("#{full_path_to(relative_path)}/#{entry}") and not_ignored?(entry)
-          files << {:url => url_for(entry, relative_path), :name => entry} 
+          files << entry 
         end
       end
       files
@@ -65,7 +56,7 @@ module Garaj
       dirs = []
       Dir.foreach(full_path_to(relative_path)) do |entry|
         if File.directory?("#{full_path_to(relative_path)}/#{entry}") and not_ignored?(entry)
-          dirs << {:url => url_for(entry, relative_path), :name => entry} 
+          dirs << entry 
         end
       end
       dirs

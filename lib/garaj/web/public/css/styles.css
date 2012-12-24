@@ -3,7 +3,7 @@ html {
   font-size: 14px;
 }
 
-p, ul, pre {
+p, ul, pre, table, tbody, tr, td {
   margin: 0;
   padding: 0;
 }
@@ -70,12 +70,21 @@ a {
   color: #555;
 }
 
-.file-content {
-  padding: 12px;
-  display: block;
+.highlighttable {
+  font-size: 13px;
+  border-spacing: 0;
+}
+
+.code {
+  padding: 8px;
   background-color: #fff;
-  overflow: auto;
-  overflow-y: hidden;
+  width: 100%;
+}
+
+.linenodiv { 
+  padding: 10px 6px;
+  color: #AAA;
+  border-right: 1px solid #bbb;
 }
 
 /** Footer**/

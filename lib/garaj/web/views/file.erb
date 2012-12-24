@@ -1,6 +1,7 @@
 <div class="box">
   <div class="file">
     <span class="file-name"><%= @file_name %></span>
-    <pre class="file-content"><%= @file_content %></pre>
+    <%= syntax_highlight(@file_content, @file_name) %>
+  </div>
   </div>
 </div>

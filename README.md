@@ -31,7 +31,6 @@ http://127.0.0.1:9988
 
 ## Roadmap
 
-* Syntax highlighting
 * File, page icons
 * Readme.md support
 * Markdown support

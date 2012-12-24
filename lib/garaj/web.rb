@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'pygments'
 
 module Garaj
   class Web < Sinatra::Base
@@ -18,6 +19,17 @@ module Garaj
           "/#{relative_path}/#{entry}" 
         else
           "/#{entry}" 
+        end
+      end
+
+      def syntax_highlight(file_content, file_name)
+        options = { :encoding => 'utf-8', :linenos => 'True' }
+        lexer = file_name.split('.').last
+
+        begin
+          ::Pygments.highlight(file_content, :lexer => lexer.downcase, :options => options)
+        rescue
+          ::Pygments.highlight(file_content, :options => options)
         end
       end
     end
